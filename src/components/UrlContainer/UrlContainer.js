@@ -11,6 +11,7 @@ const UrlContainer = ({urls})=> {
         title={url.title}
         short_url={url.short_url}
         long_url={url.long_url}
+        key={url.id}
       />
     )
   });
