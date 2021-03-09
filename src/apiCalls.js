@@ -10,11 +10,4 @@ export const postUrl = (long_url, title) => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(data)
   })
-  .then((res) => res.json())
-  .then((data) => {
-    console.log('Success:', data)
-  })
-  .catch((error) => {
-    console.log('Error:', data)
-  })
 }
