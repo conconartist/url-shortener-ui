@@ -20,7 +20,11 @@ export class App extends Component {
       console.log(error)
     })
   }
-
+  
+  addUrl = (newUrl) => {
+    this.setState({urls: [...this.state.urls, newUrl]})
+  }
+  
   render() {
     return (
       <main className="App">
