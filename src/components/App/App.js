@@ -16,11 +16,11 @@ export class App extends Component {
 
   componentDidMount() {
     this.setState({isFetching: true})
-    return getUrls()
+    getUrls()
     .then(data => {
       this.setState({urls: data.urls, isFetching: false})
     }).catch(error => {
-      console.log(error)
+      console.log('Error:', error)
       this.setState({isFetching: false, error: true})
     })
   }
@@ -28,6 +28,7 @@ export class App extends Component {
   addUrl = (newUrl) => {
     this.setState({urls: [...this.state.urls, newUrl]})
     postUrl(newUrl.urlToShorten, newUrl.title)
+    this.render()
   }
 
   render() {
@@ -37,6 +38,7 @@ export class App extends Component {
           <h1>URL Shortener</h1>
           <UrlForm addUrl={this.addUrl}/>
         </header>
+        {this.state.isFetching && <h2>Getting URLs</h2>}
         <UrlContainer urls={this.state.urls}/>
       </main>
     );

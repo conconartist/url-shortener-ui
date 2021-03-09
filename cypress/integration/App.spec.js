@@ -50,7 +50,6 @@ describe('Main Display', () => {
         .get('input[name=title]').type('Will this work?')
         .get('input[name=urlToShorten]').type('https://images.unsplash.com/photo-1531898418865-480b7090470f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')
         .get('button').click()
-        cy.visit(mainUrl)
         .get('.url')
         .its('length').should('eq', 3)
     })
